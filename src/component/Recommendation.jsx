@@ -57,7 +57,7 @@ export default function Recommendation() {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % boxs.length);
