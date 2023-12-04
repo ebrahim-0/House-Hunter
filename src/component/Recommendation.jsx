@@ -56,7 +56,6 @@ export default function Recommendation() {
       color: "text-[#EF4444]",
     },
   ];
-
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const nextSlide = () => {
@@ -67,10 +66,8 @@ export default function Recommendation() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + boxs.length) % boxs.length);
   };
 
-  console.log(currentIndex);
-
   return (
-    <section className="w-11/12 ml-auto overflow-hidden p-10 pr-0 pb-0 pt-36">
+    <section className="w-11/12 ml-auto overflow-hidden pl-10">
       <h1 className="flex items-center gap-2 text-[#F59E0B]">
         <hr className="w-8 h-[1px] border-0 bg-[#F59E0B]" />
         Our Recommendation
@@ -80,6 +77,7 @@ export default function Recommendation() {
         <h1 className="text-3xl text-[#1B1C57] font-semibold">
           Featured House
         </h1>
+
         <ul className="flex items-center gap-8">
           <li className="flex items-center gap-2 py-3 px-6 text-[#10B981] rounded-[32px] bg-[#D1FAE5]">
             <AiFillHome />
@@ -111,30 +109,35 @@ export default function Recommendation() {
       </div>
 
       <div className="flex items-center gap-5 overflow-hidden justify-between mt-10 transition-transform ease-in-out duration-300">
-        {[currentIndex - 1, currentIndex, (currentIndex + 1) % boxs.length].map(
-          (index) => (
-            <RecommendationBox
-              key={index}
-              box={{
-                ...boxs[(index + boxs.length) % boxs.length],
-                isLast: index === boxs.length - 1,
-              }}
-            />
-          ),
-        )}
+        {[0, 1, 2, 3].map((offset) => (
+          <RecommendationBox
+            key={offset}
+            box={boxs[(currentIndex + offset) % boxs.length]}
+            isHalf={offset === 3}
+          />
+        ))}
       </div>
     </section>
   );
 }
-const RecommendationBox = ({ box }) => (
-  <div style={{ minWidth: "calc(33.33% - 20px)" }}>
+const RecommendationBox = ({ box, isHalf }) => (
+  <div
+    style={{
+      width: isHalf ? "calc(33.33% - 10px)" : "calc(50% - 10px)",
+      marginRight: isHalf ? "20px" : "0",
+    }}
+  >
     <img
+      key={box.img}
       src={box.img}
-      className={`rounded-3xl w-full h-[382px] object-cover`}
+      className={`rounded-3xl w-full h-[382px] object-cover image-transition`}
       alt=""
+      onLoad={(e) => {
+        e.target.classList.add("image-loaded");
+      }}
     />
     <p
-      className={`${box.bg} ${box.color} w-fit text-red-900 flex items-center gap-2.5 px-4 py-2 rounded-[32px] -translate-y-14 translate-x-4`}
+      className={`${box.bg} ${box.color} w-fit text-red-900 flex items-center gap-2.5 px-4 py-2 -translate-y-14 translate-x-4 rounded-[32px]`}
     >
       {box.icon}
       {box.head}

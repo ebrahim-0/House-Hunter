@@ -48,7 +48,7 @@ const Carousel = () => {
 
   return (
     <>
-      <div className="relative flex overflow-hidden">
+      <div className="relative flex gap-14 overflow-hidden">
         {/* Left Image (Previous) */}
         <div className="relative w-[360px] pb-36 mx-auto">
           <img
@@ -59,7 +59,7 @@ const Carousel = () => {
             alt=""
             className="w-full h-[400px] rounded-lg object-cover opacity-70"
           />
-          <div className="absolute bottom-4 -left-[90%] bg-white rounded-2xl w-[612px] p-8">
+          <div className="absolute bottom-4 -left-[100%] bg-white rounded-2xl w-[612px] p-8">
             <h1 className="text-[#1B1C57] font-semibold text-xl mb-4">
               {
                 reviews[(currentSlide - 1 + reviews.length) % reviews.length]
@@ -112,7 +112,7 @@ const Carousel = () => {
         </div>
 
         {/* Center Image (Current) */}
-        <div className="relative w-[720px] pb-36 mx-auto">
+        <div className="relative w-[740px] pb-36 mx-auto">
           <img
             src={reviews[currentSlide].image}
             alt=""
@@ -156,7 +156,7 @@ const Carousel = () => {
             alt=""
             className="w-full h-[400px] rounded-lg object-cover opacity-70"
           />
-          <div className="absolute bottom-4 -right-[90%] bg-white rounded-2xl w-[612px] p-8">
+          <div className="absolute bottom-4 -right-[100%] bg-white rounded-2xl w-[612px] p-8">
             <h1 className="text-[#1B1C57] font-semibold text-xl mb-4">
               {reviews[(currentSlide + 1) % reviews.length].title}
             </h1>
