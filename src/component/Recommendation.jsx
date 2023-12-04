@@ -130,7 +130,9 @@ const RecommendationBox = ({ box, isHalf }) => (
     <img
       key={box.img}
       src={box.img}
-      className={`rounded-3xl w-full h-[382px] object-cover image-transition`}
+      className={`${
+        isHalf ? "rounded-l-3xl" : "rounded-3xl"
+      } w-full h-[382px] object-cover image-transition`}
       alt=""
       onLoad={(e) => {
         e.target.classList.add("image-loaded");
