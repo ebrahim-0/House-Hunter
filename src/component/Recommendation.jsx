@@ -17,6 +17,7 @@ export default function Recommendation() {
       icon: <SiFireship />,
       bg: "bg-[#FEE2E2]",
       color: "text-[#EF4444]",
+      type: "house",
     },
     {
       img: "/images/Featured-House2.jpg",
@@ -29,6 +30,7 @@ export default function Recommendation() {
       icon: <AiFillHome />,
       bg: "bg-[#DBEAFE]",
       color: "text-[#1D4ED8]",
+      type: "villa",
     },
     {
       img: "/images/Featured-House3.jpg",
@@ -41,6 +43,7 @@ export default function Recommendation() {
       iconImg: "/images/subscribe2.jpg",
       bg: "bg-[#D1FAE5]",
       color: "text-[#047857]",
+      type: "apartment",
     },
     {
       img: "/images/Featured-House4.jpg",
@@ -53,8 +56,12 @@ export default function Recommendation() {
       iconImg: "/images/recomendation2.jpg",
       bg: "bg-[#FEE2E2]",
       color: "text-[#EF4444]",
+      type: "house",
     },
   ];
+
+  const [filter, setFilter] = useState("all");
+
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const nextSlide = () => {
@@ -63,6 +70,27 @@ export default function Recommendation() {
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + boxs.length) % boxs.length);
+  };
+
+  const applyFilter = (newFilter) => {
+    setFilter(newFilter.toLowerCase());
+    setCurrentIndex(0);
+  };
+
+  const getFilteredBoxs = () =>
+    filter === "all" ? boxs : boxs.filter((box) => box.type === filter);
+
+  const filteredBoxs = getFilteredBoxs();
+
+  const slidesToShow =
+    filteredBoxs.length < 4
+      ? filteredBoxs
+      : Array.from({ length: 4 }).map(
+          (_, i) => filteredBoxs[(currentIndex + i) % filteredBoxs.length],
+        );
+
+  const addActiveClass = (active) => {
+    return filter === active.toLowerCase() ? "active" : "";
   };
 
   return (
@@ -78,15 +106,36 @@ export default function Recommendation() {
         </h1>
 
         <ul className="flex items-center gap-8">
-          <li className="flex items-center gap-2 py-3 px-6 text-[#10B981] rounded-[32px] bg-[#D1FAE5]">
+          <li
+            onClick={() => applyFilter("House")}
+            className={`${
+              addActiveClass("House")
+                ? " text-[#10B981] bg-[#D1FAE5]"
+                : "text-[#888B97]"
+            } flex items-center gap-2 py-3 px-6 rounded-[32px] border border-[#E0E3EB] cursor-pointer`}
+          >
             <AiFillHome />
             House
           </li>
-          <li className="flex items-center gap-2 py-3 px-6 text-[#888B97] rounded-[32px] border border-[#E0E3EB]">
+          <li
+            onClick={() => applyFilter("Villa")}
+            className={`${
+              addActiveClass("Villa")
+                ? " text-[#10B981] bg-[#D1FAE5]"
+                : "text-[#888B97]"
+            } flex items-center gap-2 py-3 px-6 rounded-[32px] border border-[#E0E3EB] cursor-pointer`}
+          >
             <MdVilla />
             Villa
           </li>
-          <li className="flex items-center gap-2 py-3 px-6 text-[#888B97] rounded-[32px] border border-[#E0E3EB]">
+          <li
+            onClick={() => applyFilter("Apartment")}
+            className={`${
+              addActiveClass("Apartment")
+                ? " text-[#10B981] bg-[#D1FAE5]"
+                : "text-[#888B97]"
+            } flex items-center gap-2 py-3 px-6 rounded-[32px] border border-[#E0E3EB] cursor-pointer`}
+          >
             <MdOutlineApartment />
             Apartment
           </li>
@@ -129,13 +178,9 @@ export default function Recommendation() {
         </div>
       </div>
 
-      <div className="flex items-center gap-5 overflow-hidden justify-between mt-10 transition-transform ease-in-out duration-300">
-        {[0, 1, 2, 3].map((offset) => (
-          <RecommendationBox
-            key={offset}
-            box={boxs[(currentIndex + offset) % boxs.length]}
-            isHalf={offset === 3}
-          />
+      <div className="flex items-center gap-5 overflow-hidden mt-10 transition-transform ease-in-out duration-300">
+        {slidesToShow.map((box, index) => (
+          <RecommendationBox key={index} box={box} isHalf={index === 3} />
         ))}
       </div>
     </section>
@@ -144,8 +189,7 @@ export default function Recommendation() {
 const RecommendationBox = ({ box, isHalf }) => (
   <div
     style={{
-      width: isHalf ? "calc(33.33% - 10px)" : "calc(50% - 10px)",
-      marginRight: isHalf ? "20px" : "0",
+      width: isHalf ? "220px" : "360px",
     }}
   >
     <img
@@ -168,6 +212,7 @@ const RecommendationBox = ({ box, isHalf }) => (
     <h1 className="text-[#0E1735] text-2xl font-medium mt-6 whitespace-nowrap">
       {box.title}
     </h1>
+    <h1>{box.type}</h1>
     <h1 className="text-[#3C4563] text-xl font-medium my-6">{box.price}</h1>
     <div className="flex items-center gap-4">
       <img src={box.iconImg} className="w-10 rounded-[40px]" alt="Ellipse6" />

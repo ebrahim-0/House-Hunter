@@ -1,6 +1,23 @@
 import { MdCall } from "react-icons/md";
+import { useState } from "react";
 
 export default function Sell() {
+  const [mainImage, setMainImage] = useState("/images/sell1.png");
+  const [thumbnails, setThumbnails] = useState({
+    left: "/images/sell2.jpg",
+    center: "/images/sell3.jpg",
+    right: "/images/sell4.jpg",
+  });
+  const swapImage = (clickedThumbnail) => {
+    const newMainImage = thumbnails[clickedThumbnail];
+    const newThumbnails = { ...thumbnails };
+
+    newThumbnails[clickedThumbnail] = mainImage;
+
+    setMainImage(newMainImage);
+    setThumbnails(newThumbnails);
+  };
+
   return (
     <section className={"relative"}>
       <svg
@@ -201,39 +218,52 @@ export default function Sell() {
             </div>
           </div>
 
-          <div className={"relative"}>
+          <div className="relative transition duration-500 ease-in-out">
             <img
-              className={"rounded w-[488px] h-[416px] object-cover"}
-              src={"/images/sell1.png"}
-              alt={""}
+              className="transition duration-500 ease-in-out opacity-0 scale-90 rounded w-[488px] h-[416px] object-cover"
+              src={mainImage}
+              key={Math.random()}
+              alt="Main Display"
+              onLoad={(e) => {
+                e.target.classList.add("image-loaded");
+              }}
             />
             <img
-              className={
-                "absolute z-40 top-1/2 right-1/2 translate-x-1/2 object-cover"
-              }
-              src={"/images/bi_play-circle-fill.svg"}
-              alt={""}
+              className="absolute z-40 top-1/2 right-1/2 translate-x-1/2 object-cover"
+              src="/images/bi_play-circle-fill.svg"
+              alt=""
+            />
+            />
+            {/* Other thumbnails */}
+            <img
+              className="transition duration-500 ease-in-out opacity-0 scale-90 rounded absolute -left-10 -bottom-11 object-cover w-[296px] h-[180px]"
+              src={thumbnails.left}
+              key={thumbnails.left}
+              alt="Left Thumbnail"
+              onClick={() => swapImage("left")}
+              onLoad={(e) => {
+                e.target.classList.add("image-loaded");
+              }}
             />
             <img
-              className={
-                "rounded absolute object-cover -left-10 -bottom-11 h-[180px]"
-              }
-              src={"/images/sell2.jpg"}
-              alt={""}
+              className="transition duration-500 ease-in-out opacity-0 scale-90 rounded absolute right-[126px] -bottom-11 object-cover w-[96px] h-[80px]"
+              src={thumbnails.center}
+              key={thumbnails.center}
+              alt="Right Top Thumbnail"
+              onClick={() => swapImage("center")}
+              onLoad={(e) => {
+                e.target.classList.add("image-loaded");
+              }}
             />
             <img
-              className={
-                "rounded absolute object-cover right-[138px] -bottom-11 w-[96px] h-[80px]"
-              }
-              src={"/images/sell3.jpg"}
-              alt={""}
-            />
-            <img
-              className={
-                "rounded absolute object-cover right-5 -bottom-11 w-[96px] h-[80px]"
-              }
-              src={"/images/sell4.jpg"}
-              alt={""}
+              className="transition duration-500 ease-in-out opacity-0 scale-90 rounded absolute right-5 -bottom-11 object-cover w-[96px] h-[80px]"
+              src={thumbnails.right}
+              key={thumbnails.right}
+              alt="Right Bottom Thumbnail"
+              onClick={() => swapImage("right")}
+              onLoad={(e) => {
+                e.target.classList.add("image-loaded");
+              }}
             />
           </div>
         </div>
