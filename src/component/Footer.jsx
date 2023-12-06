@@ -51,7 +51,7 @@ export default function Footer() {
 
   return (
     <section className={""}>
-      <div className={"relative"}>
+      <div className={"relative -z-10"}>
         <svg
           className={"absolute right-0 -top-28"}
           xmlns="http://www.w3.org/2000/svg"
@@ -211,7 +211,7 @@ export default function Footer() {
                   <p
                     key={i}
                     className={
-                      "text-[#888B97] text-sm font-normal leading-normal capitalize"
+                      "text-[#888B97] text-sm font-normal leading-normal capitalize cursor-pointer"
                     }
                   >
                     {content.text}

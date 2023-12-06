@@ -5,7 +5,22 @@ import { IoWallet } from "react-icons/io5";
 import { useState } from "react";
 
 export default function Recommendation() {
-  const boxs = [
+  const filters = [
+    {
+      icon: <AiFillHome />,
+      text: "House",
+    },
+    {
+      icon: <MdVilla />,
+      text: "Villa",
+    },
+    {
+      icon: <MdOutlineApartment />,
+      text: "Apartment",
+    },
+  ];
+
+  const boxes = [
     {
       img: "/images/Featured-House1.jpg",
       title: "Roselands House",
@@ -65,24 +80,21 @@ export default function Recommendation() {
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % boxs.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % boxes.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + boxs.length) % boxs.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + boxes.length) % boxes.length,
+    );
   };
 
   const applyFilter = (newFilter) => {
     setFilter(newFilter.toLowerCase());
     setCurrentIndex(0);
   };
-
-  const filteredBoxs =
-    filter === "all" ? boxs : boxs.filter((box) => box.type === filter);
-
-  const addActiveClass = (active) => {
-    return filter === active.toLowerCase() ? "active" : "";
-  };
+  const filteredBoxes =
+    filter === "all" ? boxes : boxes.filter((box) => box.type === filter);
 
   return (
     <section className="w-11/12 ml-auto overflow-hidden pl-10">
@@ -97,39 +109,20 @@ export default function Recommendation() {
         </h1>
 
         <ul className="flex items-center gap-8">
-          <li
-            onClick={() => applyFilter("House")}
-            className={`${
-              addActiveClass("House")
-                ? " text-[#10B981] bg-[#D1FAE5]"
-                : "text-[#888B97]"
-            } flex items-center gap-2 py-3 px-6 rounded-[32px] border border-[#E0E3EB] cursor-pointer`}
-          >
-            <AiFillHome />
-            House
-          </li>
-          <li
-            onClick={() => applyFilter("Villa")}
-            className={`${
-              addActiveClass("Villa")
-                ? " text-[#10B981] bg-[#D1FAE5]"
-                : "text-[#888B97]"
-            } flex items-center gap-2 py-3 px-6 rounded-[32px] border border-[#E0E3EB] cursor-pointer`}
-          >
-            <MdVilla />
-            Villa
-          </li>
-          <li
-            onClick={() => applyFilter("Apartment")}
-            className={`${
-              addActiveClass("Apartment")
-                ? " text-[#10B981] bg-[#D1FAE5]"
-                : "text-[#888B97]"
-            } flex items-center gap-2 py-3 px-6 rounded-[32px] border border-[#E0E3EB] cursor-pointer`}
-          >
-            <MdOutlineApartment />
-            Apartment
-          </li>
+          {filters.map((filters, index) => (
+            <li
+              key={index}
+              onClick={() => applyFilter(filters.text)}
+              className={`${
+                filter === filters.text.toLowerCase()
+                  ? " text-[#10B981] bg-[#D1FAE5]"
+                  : "text-[#888B97]"
+              } flex items-center gap-2 py-3 px-6 rounded-[32px] border border-[#E0E3EB] cursor-pointer`}
+            >
+              {filters.icon}
+              {filters.text}
+            </li>
+          ))}
         </ul>
         <div className="flex gap-1">
           <span
@@ -170,10 +163,10 @@ export default function Recommendation() {
       </div>
 
       <div className="flex items-center gap-5 overflow-hidden mt-10 transition-transform ease-in-out duration-300">
-        {filteredBoxs.slice(0, 4).map((_, index) => (
+        {filteredBoxes.slice(0, 4).map((_, index) => (
           <RecommendationBox
             key={index}
-            box={filteredBoxs[(currentIndex + index) % filteredBoxs.length]}
+            box={filteredBoxes[(currentIndex + index) % filteredBoxes.length]}
             isHalf={index === 3}
           />
         ))}

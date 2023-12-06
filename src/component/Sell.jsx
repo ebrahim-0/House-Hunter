@@ -8,14 +8,14 @@ export default function Sell() {
     center: "/images/sell3.jpg",
     right: "/images/sell4.jpg",
   });
+
   const swapImage = (clickedThumbnail) => {
-    const newMainImage = thumbnails[clickedThumbnail];
-    const newThumbnails = { ...thumbnails };
+    setThumbnails((prevThumbnails) => ({
+      ...prevThumbnails,
+      [clickedThumbnail]: mainImage,
+    }));
 
-    newThumbnails[clickedThumbnail] = mainImage;
-
-    setMainImage(newMainImage);
-    setThumbnails(newThumbnails);
+    setMainImage(thumbnails[clickedThumbnail]);
   };
 
   return (
