@@ -22,9 +22,9 @@ export default function Hero() {
           <path
             d="M2 94V8.5C2 5.18629 4.68629 2.5 8 2.5H68.5"
             stroke="#EF4444"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
 
@@ -39,9 +39,9 @@ export default function Hero() {
           <path
             d="M2 2.5H37.5C39.7091 2.5 41.5 4.29086 41.5 6.5V99.5"
             stroke="#F59E0B"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
 
@@ -56,9 +56,9 @@ export default function Hero() {
           <path
             d="M2 2H38.5C41.8137 2 44.5 4.68629 44.5 8V77"
             stroke="#3B82F6"
-            stroke-width="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </div>
@@ -202,8 +202,8 @@ export default function Hero() {
           Our Partnership
         </h1>
         <div className={"flex gap-8"}>
-          {img.map((item) => (
-            <img src={`/images/${item}`} alt={"our-partner"} />
+          {img.map((item, i) => (
+            <img key={i} src={`/images/${item}`} alt={"our-partner"} />
           ))}
         </div>
       </section>

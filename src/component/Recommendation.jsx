@@ -77,17 +77,8 @@ export default function Recommendation() {
     setCurrentIndex(0);
   };
 
-  const getFilteredBoxs = () =>
+  const filteredBoxs =
     filter === "all" ? boxs : boxs.filter((box) => box.type === filter);
-
-  const filteredBoxs = getFilteredBoxs();
-
-  const slidesToShow =
-    filteredBoxs.length < 4
-      ? filteredBoxs
-      : Array.from({ length: 4 }).map(
-          (_, i) => filteredBoxs[(currentIndex + i) % filteredBoxs.length],
-        );
 
   const addActiveClass = (active) => {
     return filter === active.toLowerCase() ? "active" : "";
@@ -179,8 +170,12 @@ export default function Recommendation() {
       </div>
 
       <div className="flex items-center gap-5 overflow-hidden mt-10 transition-transform ease-in-out duration-300">
-        {slidesToShow.map((box, index) => (
-          <RecommendationBox key={index} box={box} isHalf={index === 3} />
+        {filteredBoxs.slice(0, 4).map((_, index) => (
+          <RecommendationBox
+            key={index}
+            box={filteredBoxs[(currentIndex + index) % filteredBoxs.length]}
+            isHalf={index === 3}
+          />
         ))}
       </div>
     </section>

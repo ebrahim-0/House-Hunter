@@ -62,8 +62,8 @@ export default function Footer() {
         >
           <g opacity="0.3" filter="url(#filter0_f_4_16)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M591.209 352.001C580.173 386.669 554.914 413.19 532.037 441.462C512.326 465.821 491.32 487.535 466.292 506.373C438.414 527.356 412.122 556.558 377.273 557.946C342.311 559.339 312.951 533.407 284.067 513.634C256.911 495.044 237.575 469.427 214.166 446.286C182.126 414.612 126.833 396.642 120.566 352.001C114.507 308.845 158.489 275.35 185.353 241.061C209.162 210.671 235.738 183.755 268.438 163.262C302.015 142.219 338.082 115.019 377.273 120.785C416.401 126.54 433.038 176.499 469.088 192.779C511.116 211.758 573.755 185.58 601.836 222.192C628.703 257.222 604.604 309.919 591.209 352.001Z"
               fill="#B9FF82"
             />
@@ -76,9 +76,9 @@ export default function Footer() {
               width="734"
               height="678"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -103,8 +103,8 @@ export default function Footer() {
         >
           <g opacity="0.3" filter="url(#filter0_f_4_15)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M591.209 352.001C580.173 386.669 554.914 413.19 532.037 441.462C512.326 465.821 491.32 487.535 466.292 506.373C438.414 527.356 412.122 556.558 377.273 557.946C342.311 559.339 312.951 533.407 284.067 513.634C256.911 495.044 237.575 469.427 214.166 446.286C182.126 414.612 126.833 396.642 120.566 352.001C114.507 308.845 158.489 275.35 185.353 241.061C209.162 210.671 235.738 183.755 268.438 163.262C302.015 142.219 338.082 115.019 377.273 120.785C416.401 126.54 433.038 176.499 469.088 192.779C511.116 211.758 573.755 185.58 601.836 222.192C628.703 257.222 604.604 309.919 591.209 352.001Z"
               fill="#82BBFF"
             />
@@ -117,9 +117,9 @@ export default function Footer() {
               width="734"
               height="678"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -198,8 +198,8 @@ export default function Footer() {
         </div>
         <div>
           <div className={"flex justify-between gap-[90px]"}>
-            {texts.map((text) => (
-              <div className={"flex flex-col gap-4"}>
+            {texts.map((text, i) => (
+              <div key={i} className={"flex flex-col gap-4"}>
                 <h1
                   className={
                     "text-[#0E1735] font-semibold text-[18px] capitalize mb-1"
@@ -207,8 +207,9 @@ export default function Footer() {
                 >
                   {text.title}
                 </h1>
-                {text.content.map((content) => (
+                {text.content.map((content, i) => (
                   <p
+                    key={i}
                     className={
                       "text-[#888B97] text-sm font-normal leading-normal capitalize"
                     }

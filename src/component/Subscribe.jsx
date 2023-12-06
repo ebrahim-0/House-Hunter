@@ -42,6 +42,7 @@ export default function Subscribe() {
     >
       {imgs.map((img, i) => (
         <img
+          key={i}
           src={img.img}
           alt={""}
           className={`${img.class} absolute border-2 border-white object-cover`}

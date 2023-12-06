@@ -48,7 +48,7 @@ const Carousel = () => {
 
   return (
     <>
-      <div className="relative flex gap-14 overflow-hidden">
+      <div className="relative flex justify-evenly gap-14 overflow-hidden">
         {/* Left Image (Previous) */}
         <div className="relative w-[360px] pb-36 mx-auto">
           <img
@@ -213,6 +213,7 @@ const Carousel = () => {
       <div className={"flex gap-4 justify-center"}>
         {reviews.map((bullet, i) => (
           <span
+            key={i}
             onClick={() => setCurrentSlide(i)}
             className={`w-3 h-3 rounded-full ${
               currentSlide === i ? "bg-[#1B1C57]" : "bg-[#e0e3eb]"
