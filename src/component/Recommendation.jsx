@@ -160,10 +160,11 @@ const RecommendationBox = ({ box, isHalf }) => (
       src={box.img}
       className={`${
         isHalf ? "rounded-l-3xl" : "rounded-3xl"
-      } w-full h-[382px] object-cover image-transition`}
+      } w-full h-[382px] object-cover opacity-0  scale-90 duration-300 ease-in-out transition-all`}
       alt=""
+      loading={"lazy"}
       onLoad={(e) => {
-        e.target.classList.add("image-loaded");
+        e.target.classList.add("opacity-100", "scale-100");
       }}
     />
     <p
@@ -178,7 +179,12 @@ const RecommendationBox = ({ box, isHalf }) => (
     <h1>{box.type}</h1>
     <h1 className="text-[#3C4563] text-xl font-medium my-6">{box.price}</h1>
     <div className="flex items-center gap-4">
-      <img src={box.iconImg} className="w-10 rounded-[40px]" alt="Ellipse6" />
+      <img
+        src={box.iconImg}
+        className="w-10 rounded-[40px]"
+        alt="Ellipse6"
+        loading={"lazy"}
+      />
       <div className="">
         <h1 className="text-[#0E1735] font-medium">{box.name}</h1>
         <p className="text-[#888B97] whitespace-nowrap">{box.location}</p>

@@ -113,6 +113,7 @@ const CarouselBox = memo(({ width, position, item }) => {
         src={item.image}
         alt=""
         className="w-full h-[400px] rounded-lg object-cover opacity-70"
+        loading={"lazy"}
       />
       <div
         className={`absolute bottom-4 ${position} bg-white rounded-2xl w-[612px] p-8`}
@@ -129,6 +130,7 @@ const CarouselBox = memo(({ width, position, item }) => {
               src={item.iconImg}
               className={"w-10 rounded-[40px]"}
               alt="Ellipse6"
+              loading={"lazy"}
             />
             <div>
               <h1 className="text-[#0E1735] font-medium">{item.author}</h1>

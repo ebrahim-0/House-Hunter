@@ -39,7 +39,7 @@ export default function Subscribe() {
   return (
     <section
       className={
-        "w-10/12 h-[312px] mx-auto flex flex-col justify-center relative items-center gap-5 subscribe my-32 py-10"
+        "w-10/12 h-[312px] mx-auto flex flex-col justify-center relative items-center gap-5 my-32 py-10 bg-[url('../public/images/subscribe.png')] rounded-[32px] bg-no-repeat bg-left bg-cover"
       }
     >
       {imgs.map((img, i) => (
@@ -47,6 +47,7 @@ export default function Subscribe() {
           key={i}
           src={img.img}
           alt={""}
+          loading={"lazy"}
           className={`${img.class} absolute border-2 border-white object-cover`}
         />
       ))}

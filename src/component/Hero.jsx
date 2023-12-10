@@ -1,5 +1,8 @@
 import { FaChevronRight } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import CornerOne from "../assets/CornerOne";
+import CornerTwo from "../assets/CornerTwo";
+import CornerThree from "../assets/CornerThree";
 
 export default function Hero() {
   const img = [
@@ -11,57 +14,14 @@ export default function Hero() {
 
   return (
     <>
-      <div className={"img"}>
-        <svg
-          className={"absolute top-[144px] left-[84px]"}
-          xmlns="http://www.w3.org/2000/svg"
-          width="71"
-          height="96"
-          viewBox="0 0 71 96"
-          fill="none"
-        >
-          <path
-            d="M2 94V8.5C2 5.18629 4.68629 2.5 8 2.5H68.5"
-            stroke="#EF4444"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        <svg
-          className={"absolute top-[209px] right-[127px]"}
-          xmlns="http://www.w3.org/2000/svg"
-          width="44"
-          height="102"
-          viewBox="0 0 44 102"
-          fill="none"
-        >
-          <path
-            d="M2 2.5H37.5C39.7091 2.5 41.5 4.29086 41.5 6.5V99.5"
-            stroke="#F59E0B"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        <svg
-          className={"absolute top-[409px] right-[114.5px]"}
-          xmlns="http://www.w3.org/2000/svg"
-          width="47"
-          height="79"
-          viewBox="0 0 47 79"
-          fill="none"
-        >
-          <path
-            d="M2 2H38.5C41.8137 2 44.5 4.68629 44.5 8V77"
-            stroke="#3B82F6"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+      <div
+        className={
+          "absolute top-0 right-0 w-1/2 -z-10 h-[720px] bg-[url('../public/images/image.png')] bg-cover bg-no-repeat rounded-es-[80px]"
+        }
+      >
+        <CornerOne />
+        <CornerTwo />
+        <CornerThree />
       </div>
       <div className={"w-full h-[720px] absolute"}>
         <div
@@ -76,16 +36,19 @@ export default function Hero() {
               src={"/images/Ellipse1.svg"}
               className={"-ml-2.5"}
               alt={"Ellipse1"}
+              loading={"lazy"}
             />
             <img
               src={"/images/Ellipse2.svg"}
               className={"-ml-[90px]"}
               alt={"Ellipse1"}
+              loading={"lazy"}
             />
             <img
               src={"/images/Ellipse3.svg"}
               className={"-ml-[90px]"}
               alt={"Ellipse1"}
+              loading={"lazy"}
             />
 
             <div className={"-ml-4 pr-6"}>
@@ -108,6 +71,7 @@ export default function Hero() {
               src={"/images/Rectangle4.png"}
               className={"object-cover"}
               alt={"Ellipse1"}
+              loading={"lazy"}
             />
 
             <div className={""}>
@@ -126,7 +90,12 @@ export default function Hero() {
           <div
             className={"bg-white w-[108px] flex items-center rounded-l-[32px]"}
           >
-            <img src={"/images/Ellipse5.png"} className={""} alt={"Ellipse1"} />
+            <img
+              src={"/images/Ellipse5.png"}
+              className={""}
+              alt={"Ellipse1"}
+              loading={"lazy"}
+            />
 
             <div className={"-ml-3"}>
               <h1 className={"text-[#1B1C57] font-semibold"}>4K+</h1>
@@ -148,8 +117,15 @@ export default function Hero() {
           <h1>find the place to </h1>
           <h1>
             <span>live </span>
-            <span className={"text-white font-bold out"}>
-              your dreams{"  "}
+            <span
+              style={{
+                fontFamily: "'Roboto', sans-serif",
+                WebkitTextStroke: "1px #1B1C57",
+                color: "white",
+              }}
+              className={"text-white font-bold"}
+            >
+              your dreams
             </span>
           </h1>
           <h1>easily here</h1>
@@ -193,7 +169,12 @@ export default function Hero() {
         </h1>
         <div className={"flex gap-8"}>
           {img.map((item, i) => (
-            <img key={i} src={`/images/${item}`} alt={"our-partner"} />
+            <img
+              key={i}
+              src={`/images/${item}`}
+              alt={"our-partner"}
+              loading={"lazy"}
+            />
           ))}
         </div>
       </section>

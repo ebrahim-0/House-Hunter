@@ -56,7 +56,7 @@ export default function Footer() {
   ];
 
   return (
-    <section className={""}>
+    <section>
       <div className={"relative -z-10"}>
         <FooterGreenSvg />
         <FooterBlueSvg />
@@ -70,7 +70,12 @@ export default function Footer() {
               "text-[#1B1C57] flex items-center capitalize text-base font-bold z-10"
             }
           >
-            <img src="/images/logo.svg" className={"mr-4"} alt="logo" />
+            <img
+              src="/images/logo.svg"
+              className={"mr-4"}
+              alt="logo"
+              loading={"lazy"}
+            />
             Hounter
           </Link>
 

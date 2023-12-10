@@ -25,13 +25,32 @@ export default function Sell() {
     setThumbnails(newThumbnails);
   };
 
+  const details = [
+    {
+      icon: <BedroomsSvg />,
+      text: "4 Bedrooms",
+    },
+    {
+      icon: <BathroomsSvg />,
+      text: "2 Bathrooms",
+    },
+    {
+      icon: <CarportSvg />,
+      text: "1 Carport",
+    },
+    {
+      icon: <FloorsSvg />,
+      text: "2 Floors",
+    },
+  ];
+
   const thumbnailsJSX = document.querySelectorAll(".thumbnails");
 
   useEffect(() => {
     thumbnailsJSX.forEach((thumbnail, i) => {
       thumbnail.classList.remove("opacity-0");
       thumbnail.classList.remove("scale-90");
-      thumbnail.classList.add("image-loaded");
+      thumbnail.classList.add("opacity-100", "scale-100");
     });
   }, [thumbnails]);
 
@@ -64,18 +83,15 @@ export default function Sell() {
                 "grid grid-cols-2 gap-3 w-[440px] border-b-2 border-[#F0F3FD] pb-10"
               }
             >
-              <h1 className={"flex items-center gap-4 text-[#3C4563] w-fit"}>
-                <BedroomsSvg />4 Bedrooms
-              </h1>
-              <h1 className={"flex items-center gap-4 text-[#3C4563] w-fit"}>
-                <BathroomsSvg />2 Bathrooms
-              </h1>
-              <h1 className={"flex items-center gap-4 text-[#3C4563 w-fit]"}>
-                <CarportSvg />1 Carport
-              </h1>
-              <h1 className={"flex items-center gap-4 text-[#3C4563] w-fit"}>
-                <FloorsSvg />2 Floors
-              </h1>
+              {details.map((detail, i) => (
+                <div
+                  key={i}
+                  className={"flex items-center gap-4 text-[#3C4563] w-fit"}
+                >
+                  {detail.icon}
+                  {detail.text}
+                </div>
+              ))}
             </div>
 
             <div className={"flex items-center justify-between mt-10"}>
@@ -84,6 +100,7 @@ export default function Sell() {
                   src={"/images/Ellipse6.svg"}
                   className={" "}
                   alt={"Ellipse6"}
+                  loading={"lazy"}
                 />
 
                 <div className={""}>
@@ -112,14 +129,16 @@ export default function Sell() {
               className="absolute z-40 top-1/2 right-1/2 translate-x-1/2 object-cover"
               src="/images/bi_play-circle-fill.svg"
               alt=""
+              loading={"lazy"}
             />
             <img
               className="transition duration-500 ease-in-out scale-90 opacity-0 rounded w-[488px] h-[416px] object-cover"
               src={mainImage}
               key={Math.random()}
               alt="Main Display"
+              loading={"lazy"}
               onLoad={(e) => {
-                e.target.classList.add("image-loaded");
+                e.target.classList.add("opacity-100", "scale-100");
               }}
             />
 
@@ -133,11 +152,12 @@ export default function Sell() {
                 } ${i === 2 ? "right-5 -bottom-11 w-[96px] h-[80px]" : ""}`}
                 src={src}
                 alt={`Thumbnail ${i}`}
+                loading={"lazy"}
                 onClick={() => swapImage(i)}
                 onLoad={(e) => {
                   e.target.classList.remove("opacity-0");
                   e.target.classList.remove("scale-90");
-                  e.target.classList.add("image-loaded");
+                  e.target.classList.add("opacity-100", "scale-100");
                 }}
               />
             ))}

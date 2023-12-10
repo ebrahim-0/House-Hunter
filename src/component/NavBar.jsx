@@ -19,7 +19,12 @@ export default function NavBar() {
               "text-[#1B1C57] flex items-center capitalize text-base font-bold z-10"
             }
           >
-            <img src="/images/logo.svg" className={"mr-4"} alt="logo" />
+            <img
+              src="/images/logo.svg"
+              className={"mr-4"}
+              alt="logo"
+              loading={"lazy"}
+            />
             Hounter
           </Link>
 

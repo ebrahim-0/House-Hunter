@@ -65,6 +65,7 @@ export default function Tips() {
                 <img
                   src={tip.image}
                   alt={""}
+                  loading={"lazy"}
                   className={"w-[220px] rounded-2xl object-cover"}
                 />
                 <div>
@@ -73,6 +74,7 @@ export default function Tips() {
                       src={tip.iconImg}
                       className={"w-10 rounded-[40px]  object-cover"}
                       alt={""}
+                      loading={"lazy"}
                     />
                     <span
                       className={
@@ -107,6 +109,7 @@ export default function Tips() {
             <img
               src="/images/tip4.jpg"
               alt={""}
+              loading={"lazy"}
               className={"w-[560px] h-[280px] rounded-2xl object-cover"}
             />
             <div className={"flex items-center gap-4"}>
@@ -114,6 +117,7 @@ export default function Tips() {
                 src="/images/tip_4.jpg"
                 className={"w-10 rounded-[40px] object-cover"}
                 alt={""}
+                loading={"lazy"}
               />
               <span
                 className={"text-[#3C4563] font-normal text-sm leading-[22px]"}
