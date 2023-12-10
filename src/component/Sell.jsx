@@ -47,9 +47,9 @@ export default function Sell() {
   const thumbnailsJSX = document.querySelectorAll(".thumbnails");
 
   useEffect(() => {
-    thumbnailsJSX.forEach((thumbnail, i) => {
+    thumbnailsJSX.forEach((thumbnail) => {
       thumbnail.classList.remove("opacity-0");
-      thumbnail.classList.remove("scale-90");
+      thumbnail.classList.remove("scale-50");
       thumbnail.classList.add("opacity-100", "scale-100");
     });
   }, [thumbnails]);
@@ -132,21 +132,23 @@ export default function Sell() {
               loading={"lazy"}
             />
             <img
-              className="transition duration-500 ease-in-out scale-90 opacity-0 rounded w-[488px] h-[416px] object-cover"
+              className="transition duration-500 ease-in-out opacity-0 scale-50 rounded w-[488px] h-[416px] object-cover"
               src={mainImage}
               key={Math.random()}
               alt="Main Display"
               loading={"lazy"}
               onLoad={(e) => {
-                e.target.classList.add("opacity-100", "scale-100");
+                e.currentTarget.classList.remove("opacity-0");
+                e.currentTarget.classList.remove("scale-50");
+                e.currentTarget.classList.add("opacity-100", "scale-100");
               }}
             />
 
             {thumbnails.map((src, i) => (
               <img
                 key={src}
-                className={`transition thumbnails duration-500 ease-in-out scale-90 opacity-0 rounded absolute object-cover ${
-                  i === 0 ? "-left-10 -bottom-11 w-[296px] h-[180px]" : ""
+                className={`thumbnails transition-all duration-500 ease-in-out scale-50 opacity-0 rounded absolute object-cover ${
+                  i === 0 ? "right-[232px] -bottom-11 w-[296px] h-[180px]" : ""
                 } ${
                   i === 1 ? "right-[126px] -bottom-11 w-[96px] h-[80px]" : ""
                 } ${i === 2 ? "right-5 -bottom-11 w-[96px] h-[80px]" : ""}`}
@@ -155,9 +157,9 @@ export default function Sell() {
                 loading={"lazy"}
                 onClick={() => swapImage(i)}
                 onLoad={(e) => {
-                  e.target.classList.remove("opacity-0");
-                  e.target.classList.remove("scale-90");
-                  e.target.classList.add("opacity-100", "scale-100");
+                  e.currentTarget.classList.remove("opacity-0");
+                  e.currentTarget.classList.remove("scale-50");
+                  e.currentTarget.classList.add("opacity-100", "scale-100");
                 }}
               />
             ))}

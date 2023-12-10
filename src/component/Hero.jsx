@@ -36,19 +36,16 @@ export default function Hero() {
               src={"/images/Ellipse1.svg"}
               className={"-ml-2.5"}
               alt={"Ellipse1"}
-              loading={"lazy"}
             />
             <img
               src={"/images/Ellipse2.svg"}
               className={"-ml-[90px]"}
               alt={"Ellipse1"}
-              loading={"lazy"}
             />
             <img
               src={"/images/Ellipse3.svg"}
               className={"-ml-[90px]"}
               alt={"Ellipse1"}
-              loading={"lazy"}
             />
 
             <div className={"-ml-4 pr-6"}>
@@ -71,7 +68,6 @@ export default function Hero() {
               src={"/images/Rectangle4.png"}
               className={"object-cover"}
               alt={"Ellipse1"}
-              loading={"lazy"}
             />
 
             <div className={""}>
@@ -90,12 +86,7 @@ export default function Hero() {
           <div
             className={"bg-white w-[108px] flex items-center rounded-l-[32px]"}
           >
-            <img
-              src={"/images/Ellipse5.png"}
-              className={""}
-              alt={"Ellipse1"}
-              loading={"lazy"}
-            />
+            <img src={"/images/Ellipse5.png"} className={""} alt={"Ellipse1"} />
 
             <div className={"-ml-3"}>
               <h1 className={"text-[#1B1C57] font-semibold"}>4K+</h1>
@@ -169,12 +160,7 @@ export default function Hero() {
         </h1>
         <div className={"flex gap-8"}>
           {img.map((item, i) => (
-            <img
-              key={i}
-              src={`/images/${item}`}
-              alt={"our-partner"}
-              loading={"lazy"}
-            />
+            <img key={i} src={`/images/${item}`} alt={"our-partner"} />
           ))}
         </div>
       </section>

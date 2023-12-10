@@ -160,13 +160,15 @@ const RecommendationBox = ({ box, isHalf }) => (
       src={box.img}
       className={`${
         isHalf ? "rounded-l-3xl" : "rounded-3xl"
-      } w-full h-[382px] object-cover opacity-0  scale-90 duration-300 ease-in-out transition-all`}
+      } w-full h-[382px] object-cover transform opacity-0 scale-50 transition-all duration-500 ease-in-out`}
       alt=""
-      loading={"lazy"}
+      loading="lazy"
       onLoad={(e) => {
-        e.target.classList.add("opacity-100", "scale-100");
+        e.currentTarget.classList.remove("opacity-0", "scale-50");
+        e.currentTarget.classList.add("opacity-100", "scale-100");
       }}
     />
+
     <p
       className={`${box.bg} ${box.color} w-fit text-red-900 flex items-center gap-2.5 px-4 py-2 -translate-y-14 translate-x-4 rounded-[32px]`}
     >
