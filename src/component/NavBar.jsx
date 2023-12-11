@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { FaChevronDown } from "react-icons/fa";
 import BlueSvg from "../assets/BlueSvg";
 import GreenSvg from "../assets/GreenSvg";
+import ForwardBtnSvg from "../assets/ForwardBtnSvg";
 
 export default function NavBar() {
   return (
@@ -63,7 +63,7 @@ export default function NavBar() {
                   }
                 >
                   Property
-                  <FaChevronDown />
+                  <ForwardBtnSvg />
                 </Link>
               </li>
               <li>

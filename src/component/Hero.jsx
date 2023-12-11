@@ -1,8 +1,8 @@
-import { FaChevronRight } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
 import CornerOne from "../assets/CornerOne";
 import CornerTwo from "../assets/CornerTwo";
 import CornerThree from "../assets/CornerThree";
+import NextBtnSvg from "../assets/NextBtnSvg";
+import LocationSvg from "../assets/LocationSvg";
 
 export default function Hero() {
   const img = [
@@ -148,7 +148,7 @@ export default function Hero() {
             "w-[490px] border rounded-[32px] py-1 pr-1 pl-6 my-8 flex items-center justify-between"
           }
         >
-          <FaLocationDot className={"w-6 h-6 text-[#F59E0B]"} />
+          <LocationSvg />
 
           <input
             className={"bg-[#fff] w-full px-4 py-2 outline-0"}
@@ -161,7 +161,7 @@ export default function Hero() {
             }
           >
             <span>Search</span>
-            <FaChevronRight />
+            <NextBtnSvg />
           </button>
         </div>
 

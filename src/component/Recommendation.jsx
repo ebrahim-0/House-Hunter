@@ -1,11 +1,12 @@
-import { AiFillHome } from "react-icons/ai";
-import { MdOutlineApartment, MdVilla } from "react-icons/md";
-import { SiFireship } from "react-icons/si";
-import { IoWallet } from "react-icons/io5";
-import { useState } from "react";
+import React, { useState } from "react";
 import { SlideLogic } from "./SlideLogic";
 import NextSvg from "../assets/NextSvg";
 import PrevSvg from "../assets/PrevSvg";
+import HomeSvg from "../assets/HomeSvg";
+import VillaSvg from "../assets/VillaSvg";
+import ApartmentSvg from "../assets/ApartmentSvg";
+import FireSvg from "../assets/FireSvg";
+import WalletSvg from "../assets/WalletSvg";
 
 const boxes = [
   {
@@ -16,9 +17,10 @@ const boxes = [
     location: "Manchester, Kentucky",
     head: "Popular",
     iconImg: "/images/Ellipse6.svg",
-    icon: <SiFireship />,
+    icon: <FireSvg />,
     bg: "bg-[#FEE2E2]",
-    color: "text-[#EF4444]",
+    textColor: "text-[#EF4444]",
+    color: "#EF4444",
     type: "house",
   },
   {
@@ -29,9 +31,10 @@ const boxes = [
     location: "Dr. San Jose, South Dakota",
     head: "New House",
     iconImg: "/images/recomendation.jpg",
-    icon: <AiFillHome />,
+    icon: <HomeSvg />,
     bg: "bg-[#DBEAFE]",
-    color: "text-[#1D4ED8]",
+    textColor: "text-[#1D4ED8]",
+    color: "#1D4ED8",
     type: "villa",
   },
   {
@@ -41,10 +44,11 @@ const boxes = [
     name: "Ronald Richards",
     location: "Santa Ana, Illinois",
     head: "Best Deals",
-    icon: <IoWallet />,
+    icon: <WalletSvg />,
     iconImg: "/images/subscribe2.jpg",
     bg: "bg-[#D1FAE5]",
-    color: "text-[#047857]",
+    textColor: "text-[#047857]",
+    color: "#047857",
     type: "apartment",
   },
   {
@@ -54,10 +58,11 @@ const boxes = [
     name: "Jenny Wilson",
     location: "Preston Rd. Inglewood, Maine 98380",
     head: "Popular",
-    icon: <SiFireship />,
+    icon: <FireSvg />,
     iconImg: "/images/recomendation2.jpg",
     bg: "bg-[#FEE2E2]",
-    color: "text-[#EF4444]",
+    textColor: "text-[#EF4444]",
+    color: "#EF4444",
     type: "house",
   },
 ];
@@ -71,15 +76,15 @@ const Recommendation = ({
 }) => {
   const filters = [
     {
-      icon: <AiFillHome />,
+      icon: <HomeSvg />,
       text: "House",
     },
     {
-      icon: <MdVilla />,
+      icon: <VillaSvg />,
       text: "Villa",
     },
     {
-      icon: <MdOutlineApartment />,
+      icon: <ApartmentSvg />,
       text: "Apartment",
     },
   ];
@@ -116,7 +121,10 @@ const Recommendation = ({
                   : "text-[#888B97]"
               } flex items-center gap-2 py-3 px-6 rounded-[32px] border border-[#E0E3EB] cursor-pointer`}
             >
-              {filters.icon}
+              {React.cloneElement(filters.icon, {
+                color:
+                  filter === filters.text.toLowerCase() ? "#10B981" : "#888B97",
+              })}
               {filters.text}
             </li>
           ))}
@@ -132,7 +140,7 @@ const Recommendation = ({
             onClick={nextSlide}
             className="bg-[#10B981] text-white rounded-[32px] py-3 px-4 w-[60px] h-[52px] flex justify-center items-center cursor-pointer"
           >
-            <NextSvg />
+            <NextSvg color={"white"} />
           </span>
         </div>
       </div>
@@ -172,9 +180,11 @@ const RecommendationBox = ({ box, isHalf }) => (
     />
 
     <p
-      className={`${box.bg} ${box.color} w-fit text-red-900 flex items-center gap-2.5 px-4 py-2 -translate-y-14 translate-x-4 rounded-[32px]`}
+      className={`${box.bg} ${box.textColor} w-fit flex items-center gap-2.5 px-4 py-2 -translate-y-14 translate-x-4 rounded-[32px]`}
     >
-      {box.icon}
+      {React.cloneElement(box.icon, {
+        color: box.color,
+      })}
       {box.head}
     </p>
     <h1 className="text-[#0E1735] text-2xl font-medium mt-6 whitespace-nowrap">

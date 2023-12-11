@@ -1,6 +1,8 @@
-import { FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
 import { SlideLogic } from "./SlideLogic";
 import { memo } from "react";
+import NextSvg from "../assets/NextSvg";
+import PrevSvg from "../assets/PrevSvg";
+import StarSvg from "../assets/StarSvg";
 
 const reviews = [
   {
@@ -76,7 +78,7 @@ const Carousel = ({
             onClick={prevSlide}
             className="text-black text-3xl cursor-pointer focus:outline-none"
           >
-            <FaChevronLeft />
+            <PrevSvg />
           </button>
         </div>
         <div className="absolute top-1/2 right-2 transform -translate-y-1/2">
@@ -84,7 +86,7 @@ const Carousel = ({
             onClick={nextSlide}
             className="text-black text-3xl cursor-pointer focus:outline-none"
           >
-            <FaChevronRight />
+            <NextSvg color={"black"} />
           </button>
         </div>
       </div>
@@ -114,7 +116,7 @@ const CarouselBox = memo(({ width, position, item }) => {
         alt=""
         width={"100%"}
         height={400}
-        className="rounded-lg object-cover opacity-70"
+        className="h-[400px] rounded-lg object-cover opacity-70"
         loading={"lazy"}
       />
       <div
@@ -144,7 +146,7 @@ const CarouselBox = memo(({ width, position, item }) => {
             </div>
           </div>
           <span className="flex items-center gap-4">
-            <FaStar className="text-[#F59E0B]" />
+            <StarSvg />
             {item.rating}
           </span>
         </div>

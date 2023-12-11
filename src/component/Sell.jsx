@@ -1,10 +1,10 @@
-import { MdCall } from "react-icons/md";
 import { useEffect, useState } from "react";
 import RedSvg from "../assets/RedSvg";
 import BedroomsSvg from "../assets/BedroomsSvg";
 import BathroomsSvg from "../assets/BathroomsSvg";
 import CarportSvg from "../assets/CarportSvg";
 import FloorsSvg from "../assets/FloorsSvg";
+import CallSvg from "../assets/CallSvg";
 
 export default function Sell() {
   const [mainImage, setMainImage] = useState("/images/sell1.png");
@@ -119,7 +119,7 @@ export default function Sell() {
                   "flex items-center gap-4 bg-[#10B981] text-white py-3 px-4 rounded-[32px]"
                 }
               >
-                <MdCall className={"text-2xl"} />
+                <CallSvg />
                 Contact Now
               </button>
             </div>
