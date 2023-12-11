@@ -98,9 +98,10 @@ export default function Sell() {
               <div className={"flex items-center gap-4"}>
                 <img
                   src={"/images/Ellipse6.svg"}
-                  className={" "}
                   alt={"Ellipse6"}
                   loading={"lazy"}
+                  width={40}
+                  height={40}
                 />
 
                 <div className={""}>
@@ -132,7 +133,9 @@ export default function Sell() {
               loading={"lazy"}
             />
             <img
-              className="transition duration-500 ease-in-out opacity-0 scale-50 rounded w-[488px] h-[416px] object-cover"
+              className="transition-all duration-500 ease-in-out opacity-0 scale-50 rounded w-[488px] h-[416px] object-cover"
+              width={488}
+              height={416}
               src={mainImage}
               key={Math.random()}
               alt="Main Display"

@@ -47,6 +47,8 @@ export default function Subscribe() {
           key={i}
           src={img.img}
           alt={""}
+          width={img.width}
+          height={img.height}
           loading={"lazy"}
           className={`${img.class} absolute border-2 border-white object-cover`}
         />

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import GreenSvg from "../assets/GreenSvg";
 import FooterGreenSvg from "../assets/FooterGreenSvg";
 import FooterBlueSvg from "../assets/FooterBlueSvg";
 import FacebookSvg from "../assets/FacebookSvg";
@@ -74,7 +73,8 @@ export default function Footer() {
               src="/images/logo.svg"
               className={"mr-4"}
               alt="logo"
-              loading={"lazy"}
+              width={40}
+              height={40}
             />
             Hounter
           </Link>

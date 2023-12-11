@@ -158,9 +158,11 @@ const RecommendationBox = ({ box, isHalf }) => (
     <img
       key={box.img}
       src={box.img}
+      width={"100%"}
+      height={382}
       className={`${
         isHalf ? "rounded-l-3xl" : "rounded-3xl"
-      } w-full h-[382px] object-cover transform opacity-0 scale-50 transition-all duration-500 ease-in-out`}
+      } h-[382px] object-cover transform opacity-0 scale-50 transition-all duration-500 ease-in-out`}
       alt=""
       loading="lazy"
       onLoad={(e) => {
@@ -183,9 +185,11 @@ const RecommendationBox = ({ box, isHalf }) => (
     <div className="flex items-center gap-4">
       <img
         src={box.iconImg}
-        className="w-10 rounded-[40px]"
+        className="rounded-[40px]"
         alt="Ellipse6"
         loading={"lazy"}
+        width={40}
+        height={40}
       />
       <div className="">
         <h1 className="text-[#0E1735] font-medium">{box.name}</h1>

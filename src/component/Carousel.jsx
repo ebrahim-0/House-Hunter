@@ -112,7 +112,9 @@ const CarouselBox = memo(({ width, position, item }) => {
       <img
         src={item.image}
         alt=""
-        className="w-full h-[400px] rounded-lg object-cover opacity-70"
+        width={"100%"}
+        height={400}
+        className="rounded-lg object-cover opacity-70"
         loading={"lazy"}
       />
       <div
@@ -128,7 +130,9 @@ const CarouselBox = memo(({ width, position, item }) => {
           <div className="flex items-center gap-4">
             <img
               src={item.iconImg}
-              className={"w-10 rounded-[40px]"}
+              width={40}
+              height={40}
+              className={"rounded-[40px]"}
               alt="Ellipse6"
               loading={"lazy"}
             />

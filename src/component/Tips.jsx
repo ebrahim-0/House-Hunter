@@ -1,4 +1,3 @@
-import BlueSvg from "../assets/BlueSvg";
 import TipsSvg from "../assets/TipsSvg";
 import TipsGreenSvg from "../assets/TipsGreenSvg";
 import TimeSvg from "../assets/TimeSvg";
@@ -66,15 +65,19 @@ export default function Tips() {
                   src={tip.image}
                   alt={""}
                   loading={"lazy"}
-                  className={"w-[220px] rounded-2xl object-cover"}
+                  className={"rounded-2xl object-cover"}
+                  width={220}
+                  height={220}
                 />
                 <div>
                   <div className={"flex items-center gap-4"}>
                     <img
                       src={tip.iconImg}
-                      className={"w-10 rounded-[40px]  object-cover"}
+                      className={"rounded-[40px]  object-cover"}
                       alt={""}
                       loading={"lazy"}
+                      width={40}
+                      height={40}
                     />
                     <span
                       className={
@@ -92,13 +95,13 @@ export default function Tips() {
                     {tip.text}
                   </p>
 
-                  <div className={"flex gap-3"}>
-                    <span
-                      className={"text-[#888B97] text-sm font-normal leading-6"}
-                    >
-                      <TimeSvg />
-                      {tip.time}
-                    </span>
+                  <div
+                    className={
+                      "flex gap-3 text-[#888B97] text-sm font-normal leading-6"
+                    }
+                  >
+                    <TimeSvg />
+                    {tip.time}
                   </div>
                 </div>
               </div>
@@ -110,14 +113,18 @@ export default function Tips() {
               src="/images/tip4.jpg"
               alt={""}
               loading={"lazy"}
-              className={"w-[560px] h-[280px] rounded-2xl object-cover"}
+              className={"h-[300px] rounded-2xl object-cover"}
+              width={560}
+              height={300}
             />
             <div className={"flex items-center gap-4"}>
               <img
                 src="/images/tip_4.jpg"
-                className={"w-10 rounded-[40px] object-cover"}
+                className={"rounded-[40px] object-cover"}
                 alt={""}
                 loading={"lazy"}
+                width={40}
+                height={40}
               />
               <span
                 className={"text-[#3C4563] font-normal text-sm leading-[22px]"}
